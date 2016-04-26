@@ -1,0 +1,17 @@
+<h2 class="ArabicHeadline">
+  <%= @account.username %>
+  <%= link_to "(delete)", account_path(@account),
+                          method: :delete,
+                          data: { confirm: 'Are you sure?' } %>
+</h2>
+
+<ul class="ArabicTweet">
+
+<% @account.tweets.each do |tweet| %>
+  <li class="ArabicTweetie">
+    <p>
+  <%= tweet.text %>
+    </p>
+  </li>
+  <% end %>
+</ul>

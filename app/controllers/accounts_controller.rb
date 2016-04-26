@@ -4,6 +4,7 @@ class AccountsController < ApplicationController
 
   def index
     @accounts = Account.all
+    @tweets = Tweet.all
   end
 
   def show
@@ -14,9 +15,7 @@ class AccountsController < ApplicationController
     @account = Account.new
   end
 
-  def create # requires API call?
-    # t = TwitterClient.new
-    # t.get_account(username)
+  def create
     @account = Account.create(params[:id])
     redirect_to @account
   end

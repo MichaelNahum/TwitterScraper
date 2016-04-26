@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
+    @accounts = Account.all
   end
 
   def show
@@ -24,10 +25,6 @@ class TweetsController < ApplicationController
     @tweet.destroy
     redirect_to accounts_path
   end
-
-
-
-
 
 end
 
