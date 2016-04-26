@@ -3,7 +3,8 @@ class Tweet < ActiveRecord::Base
 
   def self.create_with_tweets(tweets)
     tweets.each do |tweet|
-      create(username: tweet.user, text: tweet.text, raw_tweet: tweet.attrs.to_json)
+      account = Account.find_by(username: tweet.user.screen_name)
+      Tweet.create(account_id: account.id, text: tweet.text)
     end
   end
 end
