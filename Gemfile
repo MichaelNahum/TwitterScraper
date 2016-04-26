@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'twitter'
 
+gem "rails_12factor", group: :production
+
 gem 'tweetstream'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
