@@ -20,8 +20,7 @@
   <div class="AllTweets">
     <ul class="ArabicTweet">
       <p>
-        <%tweetarray = Tweet.all.sort_by { |tweet| tweet[:created_at] } %>
-        <%tweetarray.each do |tweet| %>
+        <%@tweets.each do |tweet| %>
         <li class="ArabicTweetie">
           <%= tweet.text %>
         </li>

@@ -31,8 +31,8 @@ span.arabiheader {
   margin-right: 30px;
 }
 
-.ArabicHeadline {
-  text-align: right;
+li.ArabicTweetie {
+  font-weight: bold;
 }
 
 .ArabicTweet {
@@ -59,7 +59,9 @@ div.AccountList{
 }
 div.AllTweets{
   width:80%;
-  border:2px solid green;
+  border:5px solid gray;
+  padding: 1vw;
+  border-radius: 1vw;
 }
 
 p.tweetinfo{

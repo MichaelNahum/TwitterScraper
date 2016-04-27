@@ -3,7 +3,7 @@ class AccountsController < ApplicationController
 
   def index
     @accounts = Account.all
-    @tweets   = Tweet.all
+    @tweets   = Tweet.all.order(:created_at)
   end
 
   def show

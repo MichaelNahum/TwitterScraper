@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'whenever'
+
 gem 'pry'
 
 gem 'twitter'

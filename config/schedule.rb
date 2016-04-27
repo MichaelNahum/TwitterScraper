@@ -20,8 +20,8 @@
 # Learn more: http://github.com/javan/whenever
 #
 every 1.minute do
-  runner Account.all.each do |account|
+  runner "Account.all.each do |account|
     new_tweets = TwitterClient.get_tweets(account.username)
-    Tweet.create_with_tweets(new_tweets)
-  end
+    Tweet.create_with_tweets(new_tweets)"
+    Rails.logger.info("Your tweets updated at #{Time.now}")
 end
