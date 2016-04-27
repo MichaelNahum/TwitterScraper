@@ -1,10 +1,11 @@
-<h3><%= link_to "New Account", new_account_path %></h3>
+<h3><%= link_to "New Account", new_account_path %> | 
+<%= link_to "Load Tweets", update_all_accounts_path %></h3>
 <ul>
   <% @accounts.each do |account| %>
   <div class="AccountList"
     <li>
       <p>
-      <%= link_to account.username, account_path(account) %> | <%= link_to 'Delete', account_path(account),
+      <%= link_to "@#{account.username}", account_path(account) %> | <%= link_to 'Delete', account_path(account),
                                                                          method: :delete,
                                                                          data: { confirm: 'Are you sure?' } %>
       </p>

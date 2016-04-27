@@ -1,10 +1,9 @@
-require 'twitter'
 
 class AccountsController < ApplicationController
 
   def index
     @accounts = Account.all
-    @tweets = Tweet.all
+    @tweets   = Tweet.all
   end
 
   def show
@@ -16,7 +15,7 @@ class AccountsController < ApplicationController
   end
 
   def create
-    @account = Account.create(params[:id])
+    @account = Account.create(account_params)
     redirect_to @account
   end
 
@@ -25,6 +24,26 @@ class AccountsController < ApplicationController
     @account.destroy
     redirect_to accounts_path
   end
+
+  def refresh
+    @account = Account.find(params[:id])
+    new_tweets = TwitterClient.get_tweets(@account.username)
+    Tweet.create_with_tweets(new_tweets)
+    redirect_to account_path
+  end
+
+  def update_all
+    Account.all.each do |account|
+      new_tweets = TwitterClient.get_tweets(account.username)
+      Tweet.create_with_tweets(new_tweets)
+    end
+    redirect_to accounts_path
+  end
+
+private
+def account_params
+    params.require(:account).permit(:username)
+end
 
 end
 

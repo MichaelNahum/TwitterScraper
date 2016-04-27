@@ -7,4 +7,5 @@ class Tweet < ActiveRecord::Base
       Tweet.create(account_id: account.id, text: tweet.text)
     end
   end
+  
 end

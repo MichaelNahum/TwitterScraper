@@ -1,5 +1,3 @@
-require 'twitter'
-
 class TweetsController < ApplicationController
 
   def index
@@ -24,6 +22,12 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
     redirect_to accounts_path
+  end
+
+
+  private
+  def account_params
+      params.require(:account).permit(:username)
   end
 
 end
