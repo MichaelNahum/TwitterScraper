@@ -31,22 +31,3 @@ class TweetsController < ApplicationController
   end
 
 end
-
-
-
-
-
-
-  #  def get_tweets
-  #    t = TwitterClient.new
-  #    t.get_tweets_for_user(params[:user])
-  #  end
-
-#
-#
-#
-#   private
-#   def tweet_params
-#     params.require(:entry).permit(:author, :photo_url, :date_taken)
-#   end
-# end

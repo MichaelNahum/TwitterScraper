@@ -32,6 +32,11 @@ class AccountsController < ApplicationController
     redirect_to account_path
   end
 
+  def get_more
+    if latest_tweet_id == 1
+    end
+  end
+
   def update_all
     Account.all.each do |account|
       new_tweets = TwitterClient.get_tweets(account.username)

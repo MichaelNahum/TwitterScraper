@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'twitter'
 
+gem 'strip_attributes'
+
 gem "rails_12factor", group: :production
 
 gem 'tweetstream'

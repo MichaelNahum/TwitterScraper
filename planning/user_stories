@@ -5,3 +5,14 @@ User should be able to:
 3) add/remove twitter users to/from the following_list
 4) add/remove twitter users to/from the following_list
 5) Highlight specific timeline in separate column
+
+
+checklist:
+
+1) update new tweets: fetches only NEW tweets
+2) add account validation: only accepts REAL twitter accounts
+3) stream tweets
+
+...
+
+?) Replace tweet.text with actual tweet

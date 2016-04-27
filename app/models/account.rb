@@ -1,4 +1,5 @@
 class Account < ActiveRecord::Base
-  has_many :tweets
-
+  strip_attributes
+  validates :username, presence: true
+  has_many :tweets, dependent: :destroy
 end
