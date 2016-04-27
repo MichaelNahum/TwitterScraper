@@ -44,3 +44,19 @@ background-repeat: no-repeat;
 background-position: 100% .4em;
 padding-right: 1.9em;
 }
+
+div.container{
+  display:flex;
+  width:95vw;
+}
+div.AccountList{
+  width:20%;
+}
+div.AllTweets{
+  width:80%;
+  border:2px solid green;
+}
+
+p.tweetinfo{
+  margin-right: 40px;
+}

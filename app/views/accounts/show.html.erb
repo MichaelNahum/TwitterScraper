@@ -12,6 +12,9 @@
   <li class="ArabicTweetie">
     <p>
   <%= tweet.text %>
+  </p>
+  <p class="timetweet">
+    <%= "tweeted at: #{tweet.created_at}" %>
     </p>
   </li>
   <% end %>

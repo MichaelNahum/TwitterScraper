@@ -1,15 +1,34 @@
-<h3><%= link_to "New Account", new_account_path %> | 
+<h3><%= link_to "New Account", new_account_path %> |
 <%= link_to "Load Tweets", update_all_accounts_path %></h3>
-<ul>
-  <% @accounts.each do |account| %>
-  <div class="AccountList"
-    <li>
-      <p>
-      <%= link_to "@#{account.username}", account_path(account) %> | <%= link_to 'Delete', account_path(account),
-                                                                         method: :delete,
-                                                                         data: { confirm: 'Are you sure?' } %>
-      </p>
-    </li>
+
+<div class="container">
+  <div class="AccountList">
+    <% @accounts.each do |account| %>
+    <ul>
+      <li>
+        <p>
+        <%= link_to "@#{account.username}", account_path(account) %> | <%= link_to 'Delete', account_path(account),
+                                                                           method: :delete,
+                                                                           data: { confirm: 'Are you sure?' } %>
+        </p>
+      </li>
+    </ul>
+    <% end %>
   </div>
-  <% end %>
-</ul>
+
+  <div class="AllTweets">
+    <ul class="ArabicTweet">
+      <p>
+        <%tweetarray = Tweet.all.sort_by &:created_at %>
+        <%tweetarray.each do |tweet| %>
+        <li class="ArabicTweetie">
+          <%= tweet.text %>
+        </li>
+      </p>
+      <p class="tweetinfo">
+        <%= "tweeted at: #{tweet.created_at} by #{tweet.account.username}"%>
+      </p>
+      <% end %>
+    </ul>
+  </div>
+</div>
