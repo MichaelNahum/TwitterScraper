@@ -26,6 +26,11 @@ nav a {
   padding:0px 30px;
 }
 
+span.arabiheader {
+  float: right;
+  margin-right: 30px;
+}
+
 .ArabicHeadline {
   text-align: right;
 }
@@ -59,4 +64,6 @@ div.AllTweets{
 
 p.tweetinfo{
   margin-right: 40px;
+  border-bottom: 1px solid black;
+  margin-left: 40px;
 }

@@ -1,6 +1,7 @@
-<h3><%= link_to "New Account", new_account_path %> |
-<%= link_to "Load Tweets", update_all_accounts_path %></h3>
 
+<h3><%= link_to "New Account", new_account_path %> |
+<%= link_to "Load Tweets", update_all_accounts_path %>
+<span class="arabiheader">كل المغردات الآخيرة</span></h3>
 <div class="container">
   <div class="AccountList">
     <% @accounts.each do |account| %>
@@ -19,7 +20,7 @@
   <div class="AllTweets">
     <ul class="ArabicTweet">
       <p>
-        <%tweetarray = Tweet.all.sort_by &:created_at %>
+        <%tweetarray = Tweet.all.sort_by { |tweet| tweet[:created_at] } %>
         <%tweetarray.each do |tweet| %>
         <li class="ArabicTweetie">
           <%= tweet.text %>
