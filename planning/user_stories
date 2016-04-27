@@ -9,9 +9,8 @@ User should be able to:
 
 checklist:
 
-1) update new tweets: fetches only NEW tweets
-2) add account validation: only accepts REAL twitter accounts
-3) stream tweets
+1) add account validation: only accepts REAL twitter accounts
+2) stream tweets
 
 ...
 

@@ -33,6 +33,8 @@ class AccountsController < ApplicationController
   end
 
   def get_more
+    @account = Account.find(params[:id])
+    latest_tweet_id = @account.tweets
     if latest_tweet_id == 1
     end
   end
