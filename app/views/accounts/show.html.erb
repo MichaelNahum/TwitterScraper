@@ -1,10 +1,10 @@
 <h2 class="ArabicHeadline">
   <%= "@#{@account.username}" %>
-  <%= link_to "refresh", refresh_account_path(@account) %>
-  <%= link_to "more tweets", deepen_account_path(@account) %>
+  <%= link_to "refresh", refresh_account_path(@account) %> |
+  <%= link_to "more tweets", deepen_account_path(@account) %> |
   <%= link_to "delete account", account_path(@account),
                                method: :delete,
-                               data: { confirm: 'Are you sure?' } %>
+                               data: { confirm: 'Are you sure?' } %> |
 
   <%= link_to "delete tweets", delete_tweets_account_path(@account),
                                method: :patch,

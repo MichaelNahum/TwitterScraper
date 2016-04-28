@@ -15,6 +15,22 @@
       </li>
     </ul>
     <% end %>
+      <%= render 'form' %>
+  </div>
+
+
+  <div class="HighlightedTweets">
+    <ul class="ArabicTweet">
+      <% @account.tweets.each do |tweet| %>
+      <li class="ArabicTweetie">
+          <%= tweet.text %>
+        </p>
+        <p class="tweetinfo">
+          <%= "tweeted at: #{tweet.created_at} by @#{tweet.account.username}"%>
+        </p>
+      </li>
+      <% end %>
+    </ul>
   </div>
 
   <div class="AllTweets">

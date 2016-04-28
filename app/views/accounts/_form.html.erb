@@ -1,0 +1,7 @@
+<%= form_for @account do |f| %>
+
+  <%= f.label      "Add Account:"     %>
+  <%= f.text_field :username, :value => "@..."     %>
+
+  <%= f.submit    "Enter" %>
+<% end %>

@@ -4,10 +4,18 @@ class AccountsController < ApplicationController
   def index
     @accounts = Account.all
     @tweets   =  Tweet.all.order(created_at: :desc)
+    @account  = Account.last
   end
 
   def show
     @account = Account.find(params[:id])
+  end
+
+  def update
+    @account = Account.create(account_params)
+    new_tweets = TwitterClient.get_tweets(@account.username)
+    Tweet.create_with_tweets(new_tweets)
+    redirect_to accounts_path
   end
 
   def new
