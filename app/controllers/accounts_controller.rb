@@ -25,18 +25,24 @@ class AccountsController < ApplicationController
     redirect_to accounts_path
   end
 
+  def delete_tweets
+    @account = Account.find(params[:id])
+    @account.tweets.clear
+    redirect_to account_url(@account)
+  end
+
   def refresh
     @account = Account.find(params[:id])
     new_tweets = TwitterClient.get_tweets(@account.username)
     Tweet.create_with_tweets(new_tweets)
-    redirect_to account_path
+    redirect_to account_url(@account)
   end
 
   def deepen
     @account = Account.find(params[:id])
     new_tweets = TwitterClient.get_more_tweets(@account.username)
     Tweet.create_with_tweets(new_tweets)
-    redirect_to account_path
+    redirect_to account_url(@account)
   end
 
   def update_all
