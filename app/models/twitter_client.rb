@@ -3,32 +3,33 @@ require 'twitter'
 class TwitterClient
   def self.client
     Twitter::REST::Client.new do |config|
-    config.consumer_key        = 'tUFYHKytPm9bJHEfFvc50Gzkg'
-    config.consumer_secret     = 'BNQPDTzcPhAY4psGckJRt5Nd4bHxorvmIEAo7YLdB4ZUSmB9DS'
-    config.access_token        = '1625578152-1wsOUgo62U2cBOaEegmAupnmxoHn9DKS74hfxkZ'
-    config.access_token_secret = 'xS8pInfwVpGsyLDJnZid92bOQ3F2bxY8sJ8xpTu76lvSL'
+      config.consumer_key        = 'tUFYHKytPm9bJHEfFvc50Gzkg'
+      config.consumer_secret     = 'BNQPDTzcPhAY4psGckJRt5Nd4bHxorvmIEAo7YLdB4ZUSmB9DS'
+      config.access_token        = '1625578152-1wsOUgo62U2cBOaEegmAupnmxoHn9DKS74hfxkZ'
+      config.access_token_secret = 'xS8pInfwVpGsyLDJnZid92bOQ3F2bxY8sJ8xpTu76lvSL'
     end
   end
 
 
-def self.get_tweets(username)
-  client.user_timeline(username)
-end
-
-def self.get_more_tweets(username)
-  client.user_timeline(username, opts ={count: 200})
-end
-
-def self.get_account(username)
-  client.user(username)
-end
-
-def self.update_frontpage
-  Account.all.each do |account|
-    new_tweets = TwitterClient.get_tweets(account.username)
-    Tweet.create_with_tweets(new_tweets)
+  def self.get_tweets(username)
+    client.user_timeline(username)
   end
-end
+
+  def self.get_more_tweets(username)
+    client.user_timeline(username, opts ={count: 200})
+  end
+
+  def self.get_account(username)
+    client.user(username)
+  end
+
+  def self.update_frontpage
+    Account.all.each do |account|
+      new_tweets = TwitterClient.get_tweets(account.username)
+      Tweet.create_with_tweets(new_tweets)
+    end
+    Rails.logger.info "TWEET: Updated 'FrontPage' tweets."
+  end
 end
 
 
