@@ -15,8 +15,19 @@ def self.get_tweets(username)
   client.user_timeline(username)
 end
 
+def self.get_more_tweets(username)
+  client.user_timeline(username, opts ={count: 200})
+end
+
 def self.get_account(username)
   client.user(username)
+end
+
+def self.update_frontpage
+  Account.all.each do |account|
+    new_tweets = TwitterClient.get_tweets(account.username)
+    Tweet.create_with_tweets(new_tweets)
+  end
 end
 end
 

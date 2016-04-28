@@ -50,6 +50,10 @@ background-position: 100% .4em;
 padding-right: 1.9em;
 }
 
+body {
+  background-color: rgb(0,172, 237);
+}
+
 div.container{
   display:flex;
   width:95vw;
@@ -57,11 +61,21 @@ div.container{
 div.AccountList{
   width:20%;
 }
-div.AllTweets{
+div.AllTweets {
   width:80%;
   border:5px solid gray;
   padding: 1vw;
   border-radius: 1vw;
+  background-color: white;
+  float: right;
+}
+
+a, a.visited {
+  color: white;
+}
+
+h1 {
+
 }
 
 p.tweetinfo{

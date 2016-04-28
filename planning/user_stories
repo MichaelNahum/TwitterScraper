@@ -9,9 +9,8 @@ User should be able to:
 
 checklist:
 
-1) add account validation: only accepts REAL twitter accounts
-2) stream tweets
-
+1) get_more tweets
+2) destroy all tweets ?
+3) add account validation: only accepts REAL twitter accounts
 ...
-
 ?) Replace tweet.text with actual tweet

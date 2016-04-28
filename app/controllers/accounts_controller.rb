@@ -3,7 +3,7 @@ class AccountsController < ApplicationController
 
   def index
     @accounts = Account.all
-    @tweets   = Tweet.all.order(:created_at)
+    @tweets   =  Tweet.all.order(created_at: :desc)
   end
 
   def show
@@ -32,11 +32,11 @@ class AccountsController < ApplicationController
     redirect_to account_path
   end
 
-  def get_more
+  def deepen
     @account = Account.find(params[:id])
-    latest_tweet_id = @account.tweets
-    if latest_tweet_id == 1
-    end
+    new_tweets = TwitterClient.get_more_tweets(@account.username)
+    Tweet.create_with_tweets(new_tweets)
+    redirect_to account_path
   end
 
   def update_all

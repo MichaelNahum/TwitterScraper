@@ -1,21 +1,23 @@
 <h2 class="ArabicHeadline">
   <%= "@#{@account.username}" %>
   <%= link_to "refresh", refresh_account_path(@account) %>
+  <%= link_to "more tweets", deepen_account_path(@account) %>
   <%= link_to "delete account", account_path(@account),
                           method: :delete,
                           data: { confirm: 'Are you sure?' } %>
 </h2>
 
-
+<div class="AllTweets">
 <ul class="ArabicTweet">
 <% @account.tweets.each do |tweet| %>
   <li class="ArabicTweetie">
-    <p>
+    <p class>
   <%= tweet.text %>
   </p>
-  <p class="timetweet">
-    <%= "tweeted at: #{tweet.created_at}" %>
+  <p class="tweetinfo">
+    <%= "tweeted at: #{tweet.created_at} by @#{tweet.account.username}"%>
     </p>
   </li>
   <% end %>
 </ul>
+</div>
