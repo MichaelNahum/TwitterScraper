@@ -6,6 +6,8 @@ The TwitterScraper app is designed to capture the tweets of users who, for whate
 
  Using the twitter gem, we can capture up to 200 of an account's most recent tweets, and store up to 3,200 (though an account on this list is unlikely to last that long).
 
+ Thanks to Heroku's scheduler addon, the app will automatically fetch fresh tweets from each account every 10 minutes (while filtering out duplicates).
+
  Future updates (coming soon!) will display the tweet's full front end, rather than simply the text, created_at, and username attributes.
 
 Enjoy!
