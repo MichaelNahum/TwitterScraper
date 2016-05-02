@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     patch "delete_tweets", on: :member
   end
 
+  # it looks like the only RESTful route you have for tweets is the index...
+  # I'd suggest updating your routes to clearly indicate that:
+  # resources :tweets, only: [:index]
  resources :tweets
 
 

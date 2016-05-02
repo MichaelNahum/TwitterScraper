@@ -31,6 +31,7 @@ span.arabiheader {
   margin-right: 30px;
 }
 
+/* conventional style for class names and ids are to use lower-snake-case */
 li.ArabicTweetie {
   font-weight: bold;
 }
@@ -42,6 +43,7 @@ li.ArabicTweetie {
   text-align: right;
 }
 
+/* be mindful of indentation! */
 .ArabicTweetie {
 background-image: url(http://www.steamfeed.com/wp-content/uploads/2013/07/twitter-bird.jpg);
 background-size: 1.6em;
@@ -104,6 +106,8 @@ div.AccountList a {
 a.visited {
   color: purple;
 }
+
+/* empty rule? */
 
 h1 {
 

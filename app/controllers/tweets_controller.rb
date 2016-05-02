@@ -5,6 +5,9 @@ class TweetsController < ApplicationController
     @accounts = Account.all
   end
 
+
+  # you don't have any views for the actions below... I'd suggest removing these
+  # actions and the corresponding routes.
   def show
     @tweet = Tweet.find(params[:id])
   end
@@ -13,6 +16,8 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
   end
 
+  # this comment below looks to be out of date... it's important to keep your
+  # code and comments clean!
   def create #requires API call, right?
     @tweet = Tweet.create(params[:id])
     redirect_to @tweet
