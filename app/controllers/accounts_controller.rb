@@ -4,6 +4,9 @@ class AccountsController < ApplicationController
   def index
     @accounts = Account.all
     @tweets   =  Tweet.all.order(created_at: :desc)
+
+    # suggest a more descriptive variable name to indicate why you're using the
+    # last account specifically
     @account  = Account.last
   end
 
@@ -11,8 +14,15 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
   end
 
+  # confusing that this method is the 'update' action when it really creates
+  # an account. How does it contrast with teh create action below?
   def update
     @account = Account.create(account_params)
+
+    # this code could be moved into the account model, and you could use an
+    # after_create callback (a Rails feature) to ensure it runs anytime
+    # an account is created (usually a preferred approach, although this is
+    # certainly a fine start).
     new_tweets = TwitterClient.get_tweets(@account.username)
     Tweet.create_with_tweets(new_tweets)
     redirect_to accounts_path
@@ -48,11 +58,17 @@ class AccountsController < ApplicationController
 
   def deepen
     @account = Account.find(params[:id])
+    # I see you following the pattern of using the TwitterClient to get more
+    # tweets and then passing the result to the Tweet model... could you just
+    # have the twitter client methods handle both steps for you?
+    # I'm not 100% suggesting that, it has tradeoffs in terms of re-usability
+    # of code, but just posing it as a question...
     new_tweets = TwitterClient.get_more_tweets(@account.username)
     Tweet.create_with_tweets(new_tweets)
     redirect_to account_url(@account)
   end
 
+  # for consitency with the refresh action above, I'd call this refresh_all.
   def update_all
     Account.all.each do |account|
       new_tweets = TwitterClient.get_tweets(account.username)

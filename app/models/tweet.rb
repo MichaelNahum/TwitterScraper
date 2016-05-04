@@ -5,6 +5,8 @@ class Tweet < ActiveRecord::Base
     tweets.each do |tweet|
       account = Account.find_by(username: tweet.user.screen_name)
 
+      # there's a shorter way to write this using `find_or_create_by()`, which
+      # is provided for all AR models.
       if Tweet.find_by(tweet_id: tweet.id)
         next
       else

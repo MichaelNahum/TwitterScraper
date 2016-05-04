@@ -3,6 +3,10 @@ require 'twitter'
 class TwitterClient
   def self.client
     Twitter::REST::Client.new do |config|
+      # these values shouldn't be checked into Git! Check out a tool such as
+      # figaro to help you put these in Environment Variables where they can
+      # be kepts secret.
+      # https://github.com/laserlemon/figaro#deployment
       config.consumer_key        = 'tUFYHKytPm9bJHEfFvc50Gzkg'
       config.consumer_secret     = 'BNQPDTzcPhAY4psGckJRt5Nd4bHxorvmIEAo7YLdB4ZUSmB9DS'
       config.access_token        = '1625578152-1wsOUgo62U2cBOaEegmAupnmxoHn9DKS74hfxkZ'
