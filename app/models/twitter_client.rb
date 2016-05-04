@@ -28,7 +28,6 @@ class TwitterClient
       new_tweets = TwitterClient.get_tweets(account.username)
       Tweet.create_with_tweets(new_tweets)
     end
-    Rails.logger.info "TWEET: Updated 'FrontPage' tweets."
   end
 end
 
